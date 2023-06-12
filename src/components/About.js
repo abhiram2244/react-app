@@ -1,14 +1,35 @@
-import React from "react";
+import React, { useState } from "react";
 
 export default function About() {
+  const [myStyle, setmyStyle] = useState({
+    color: "black",
+    backgroundColor: "white",
+  });
+  const [btnText, setbtnText] = useState("Enable Dark Mode");
+  const toggleStyle = () => {
+    if (myStyle.color === "black") {
+      setmyStyle({
+        color: "white",
+        backgroundColor: "black",
+      });
+      setbtnText("Enable Light Mode");
+    } else {
+      setmyStyle({
+        color: "Dark",
+        backgroundColor: "white",
+      });
+      setbtnText("Enable Dark Mode");
+    }
+  };
   return (
-    <div className="container">
+    <div className="container" style={myStyle}>
       <h1 className="my-3">About Us</h1>
       <div className="accordion" id="accordionExample">
         <div className="accordion-item">
           <h2 className="accordion-header">
             <button
               className="accordion-button"
+              style={myStyle}
               type="button"
               data-bs-toggle="collapse"
               data-bs-target="#collapseOne"
@@ -21,9 +42,10 @@ export default function About() {
           <div
             id="collapseOne"
             className="accordion-collapse collapse show"
+            style={myStyle}
             data-bs-parent="#accordionExample"
           >
-            <div className="accordion-body">
+            <div className="accordion-body" style={myStyle}>
               <strong>This is the first item's asccordion bodybbbbbbbb.</strong>{" "}
               It is shown by default, until the collapse plugin adds the
               appropriate classNamees that we use to style each element. These
@@ -36,10 +58,11 @@ export default function About() {
             </div>
           </div>
         </div>
-        <div className="accordion-item">
-          <h2 className="accordion-header">
+        <div className="accordion-item" style={myStyle}>
+          <h2 className="accordion-header" style={myStyle}>
             <button
               className="accordion-button collapsed"
+              style={myStyle}
               type="button"
               data-bs-toggle="collapse"
               data-bs-target="#collapseTwo"
@@ -52,9 +75,10 @@ export default function About() {
           <div
             id="collapseTwo"
             className="accordion-collapse collapse"
+            style={myStyle}
             data-bs-parent="#accordionExample"
           >
-            <div className="accordion-body">
+            <div className="accordion-body" style={myStyle}>
               <strong>This is the second item's accordion body.</strong> It is
               hidden by default, until the collapse plugin adds the appropriate
               classNamees that we use to style each element. These classNamees
@@ -66,10 +90,11 @@ export default function About() {
             </div>
           </div>
         </div>
-        <div className="accordion-item">
-          <h2 className="accordion-header">
+        <div className="accordion-item" style={myStyle}>
+          <h2 className="accordion-header" style={myStyle}>
             <button
               className="accordion-button collapsed"
+              style={myStyle}
               type="button"
               data-bs-toggle="collapse"
               data-bs-target="#collapseThree"
@@ -82,9 +107,10 @@ export default function About() {
           <div
             id="collapseThree"
             className="accordion-collapse collapse"
+            style={myStyle}
             data-bs-parent="#accordionExample"
           >
-            <div className="accordion-body">
+            <div className="accordion-body" style={myStyle}>
               <strong>This is the third item's accordion body.</strong> It is
               hidden by default, until the collapse plugin adds the appropriate
               classNamees that we use to style each element. These classNamees
@@ -98,8 +124,8 @@ export default function About() {
         </div>
       </div>
       <div className="container my-3">
-        <button type="button" className="btn btn-primary">
-          Enable Dark Mode
+        <button onClick={toggleStyle} type="button" className="btn btn-primary">
+          {btnText}
         </button>
       </div>
     </div>
