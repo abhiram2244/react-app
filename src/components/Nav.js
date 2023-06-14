@@ -4,7 +4,9 @@ export default function Nav(props) {
   return (
     <div>
       <nav
-        className={`navbar navbar-expand-lg navbar-${props.mode} bg-${props.mode}`}
+        className={`navbar navbar-expand-lg navbar-${
+          props.mode /* === "dark" ? props.mode : props.newmode */
+        } bg-${props.mode /* === "white" ? props.mode : props.newmode */}`}
       >
         <div className="container-fluid">
           <a className="navbar-brand" href="/">
@@ -47,21 +49,44 @@ export default function Nav(props) {
               </button>
             </form> */}
             <div
-              class={`form-check form-switch text-${
+              className={`form-check form-switch text-${
                 props.mode === "light" ? "dark" : "light"
               }`}
             >
               <input
-                class="form-check-input"
+                className="form-check-input"
                 onClick={props.toggleMode}
                 type="checkbox"
                 role="switch"
                 id="flexSwitchCheckDefault"
               />
-              <label class="form-check-label" htmlFor="flexSwitchCheckDefault">
+              <label
+                className="form-check-label"
+                htmlFor="flexSwitchCheckDefault"
+              >
                 Enable Dark
               </label>
             </div>
+            {/*new alert  */}
+            {/* <div
+              className={`form-check form-switch text-${
+                props.newmode === "light" ? "green" : "light"
+              }`}
+            >
+              <input
+                className="form-check-input"
+                onClick={props.newtoggleMode}
+                type="checkbox"
+                role="switch"
+                id="flexSwitchCheckDefault"
+              />
+              <label
+                className="form-check-label"
+                htmlFor="flexSwitchCheckDefault"
+              >
+                Enable green
+              </label>
+            </div> */}
           </div>
         </div>
       </nav>

@@ -63,7 +63,8 @@ export default function Text(props) {
       >
         <h2>Your text summary</h2>
         <p>
-          {text.split(" ").length} words and {text.length} characters
+          {text.length > 0 ? text.split(" ").length : 0} words and {text.length}{" "}
+          characters
         </p>
         <p>{0.08 * text.split(" ").length} read</p>
         <h2>Preview</h2>
