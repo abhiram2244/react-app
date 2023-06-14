@@ -5,15 +5,18 @@ export default function Text(props) {
     console.log("button clicked" + text);
     let newText = text.toUpperCase();
     setText(newText);
+    props.showAlert("converted to Uppercase", "success");
   };
   const handleLowclick = () => {
     console.log("button clicked" + text);
     let newText = text.toLowerCase();
     setText(newText);
+    props.showAlert("Converted to Lowercase", "success");
   };
   const clearText = () => {
     let newText = "";
     setText(newText);
+    props.showAlert("Cleared text", "success");
   };
   const handleOnChange = (event) => {
     console.log("on change");
@@ -25,7 +28,7 @@ export default function Text(props) {
       <div
         className="container"
         style={{
-          color: props.mode === "dark" ? "white" : "black",
+          color: props.mode === "dark" ? "white" : "#042743",
         }}
       >
         <h1>{props.heading}</h1>
@@ -35,8 +38,8 @@ export default function Text(props) {
             value={text}
             onChange={handleOnChange}
             style={{
-              backgroundColor: props.mode === "dark" ? "grey" : "white",
-              color: props.mode === "dark" ? "white" : "black",
+              backgroundColor: props.mode === "dark" ? "#042743" : "white",
+              color: props.mode === "dark" ? "white" : "#042743",
             }}
             id="myBox"
             rows="8"
@@ -55,7 +58,7 @@ export default function Text(props) {
       <div
         className="container my-3"
         style={{
-          color: props.mode === "dark" ? "white" : "black",
+          color: props.mode === "dark" ? "white" : "#042743",
         }}
       >
         <h2>Your text summary</h2>
