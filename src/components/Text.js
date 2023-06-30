@@ -45,13 +45,13 @@ export default function Text(props) {
             rows="8"
           ></textarea>
         </div>
-        <button className="btn btn-primary mx-1" onClick={handleUpclick}>
+        <button className="btn btn-primary mx-1 my-1" onClick={handleUpclick}>
           Convert to UpperCase
         </button>
-        <button className="btn btn-primary mx-1" onClick={handleLowclick}>
+        <button className="btn btn-primary mx-1 my-1" onClick={handleLowclick}>
           Convert to LowerCase
         </button>
-        <button className="btn btn-primary mx-1" onClick={clearText}>
+        <button className="btn btn-primary mx-1 my-1" onClick={clearText}>
           Clear Text
         </button>
       </div>
@@ -63,8 +63,13 @@ export default function Text(props) {
       >
         <h2>Your text summary</h2>
         <p>
-          {text.length > 0 ? text.split(" ").length : 0} words and {text.length}{" "}
-          characters
+          {
+            text.split(" ").filter((element) => {
+              return element.length !== 0;
+            }).length
+          }
+          {/* {text.length > 0 ? text.split(" ").length : 0}  */}words and{" "}
+          {text.length} characters
         </p>
         <p>{0.08 * text.split(" ").length} read</p>
         <h2>Preview</h2>
