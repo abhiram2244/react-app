@@ -30,7 +30,7 @@ export default function Nav(props) {
                 {/* <a className="nav-link active" aria-current="page" href="#">
                   Home
                 </a> */}
-                <Link className="nav-link active" aria-current="page" to="/">
+                <Link className="nav-link " aria-current="page" to="/">
                   Home
                 </Link>
               </li>

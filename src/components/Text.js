@@ -45,13 +45,25 @@ export default function Text(props) {
             rows="8"
           ></textarea>
         </div>
-        <button className="btn btn-primary mx-1 my-1" onClick={handleUpclick}>
+        <button
+          disabled={text.length === 0}
+          className="btn btn-primary mx-1 my-1"
+          onClick={handleUpclick}
+        >
           Convert to UpperCase
         </button>
-        <button className="btn btn-primary mx-1 my-1" onClick={handleLowclick}>
+        <button
+          disabled={text.length === 0}
+          className="btn btn-primary mx-1 my-1"
+          onClick={handleLowclick}
+        >
           Convert to LowerCase
         </button>
-        <button className="btn btn-primary mx-1 my-1" onClick={clearText}>
+        <button
+          disabled={text.length === 0}
+          className="btn btn-primary mx-1 my-1"
+          onClick={clearText}
+        >
           Clear Text
         </button>
       </div>
@@ -64,20 +76,22 @@ export default function Text(props) {
         <h2>Your text summary</h2>
         <p>
           {
-            text.split(" ").filter((element) => {
+            text.split(/\s+/).filter((element) => {
               return element.length !== 0;
             }).length
           }
           {/* {text.length > 0 ? text.split(" ").length : 0}  */}words and{" "}
           {text.length} characters
         </p>
-        <p>{0.08 * text.split(" ").length} read</p>
-        <h2>Preview</h2>
         <p>
-          {text.length > 0
-            ? text
-            : "Enter something in textbox above to preview it here"}
+          {0.08 *
+            text.split(" ").filter((element) => {
+              return element.length !== 0;
+            }).length}{" "}
+          Minutes read
         </p>
+        <h2>Preview</h2>
+        <p>{text.length > 0 ? text : "Nothing to preview "}</p>
       </div>
     </>
   );
